@@ -1,0 +1,56 @@
+/* styles.css */
+
+.track-title {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #FFFFFF;
+    -fx-padding: 10 0 0 0;
+}
+
+.artist-name {
+    -fx-font-size: 18px;
+    -fx-text-fill: #f00;
+}
+
+.track-duration {
+    -fx-font-size: 16px;
+    -fx-text-fill: #888888;
+}
+
+VBox {
+    -fx-background-color: #000;
+    -fx-padding: 20;
+    -fx-alignment: center;
+    -fx-spacing: 15;
+}
+track-Items{
+	 -fx-background-color:  #000;
+    -fx-padding: 10;
+    -fx-alignment: center-left;
+    -fx-spacing: 10;
+    -fx-border-color:  #000;
+    -fx-border-width: 0 0 1px 0;
+}
+
+.track-item {
+    -fx-background-color:  #fff;
+    -fx-padding: 10;
+    -fx-alignment: center-left;
+    -fx-spacing: 10;
+    -fx-border-color:  #000;
+    -fx-border-width: 0 0 1px 0; /* Linha de separação na parte inferior */
+}
+.playlist-item {
+    -fx-padding: 10;
+    -fx-spacing: 10;
+    -fx-alignment: center-left;
+}
+
+.playlist-item:hover {
+    -fx-background-color: #f0f0f0;
+    -fx-cursor: hand;
+}
+.album-label {
+	-fx-width:100;
+	-fx-heigth:100;
+}

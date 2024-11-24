@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: #121212; -fx-padding: 20;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.deosound.TrackController">
+
+	<Label layoutX="208.0" layoutY="109.0" onMouseClicked="#btn_AbaAll" style="-fx-text-fill: #1DB954;" text="All">
+		<font>
+			<Font name="Arial Bold" size="18.0" />
+		</font>
+	</Label>
+	<Label layoutX="290.0" layoutY="107.0" onMouseClicked="#btn_AbaTracks" style="-fx-text-fill: #1DB954;" text="Tracks">
+		<font>
+			<Font name="Arial Bold" size="18.0" />
+		</font>
+	</Label>
+	<!-- Centro com Lista de Reprodução -->
+
+	
+	<VBox fx:id="trackView" visible="true" opacity="1" alignment="CENTER" layoutX="188.0" layoutY="130.0" prefHeight="423.0" prefWidth="600.0" spacing="15" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
+		<ListView fx:id="trackListView" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #f00; -fx-text-fill: white;" />
+	</VBox>
+	
+	<VBox fx:id="allView" visible="false" opacity="0" alignment="CENTER" layoutX="188.0" layoutY="130.0" prefHeight="400.0" prefWidth="600.0" spacing="15"  xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
+		<ListView fx:id="allListView" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #888; -fx-text-fill: white;" />
+	</VBox>
+	<!-- Área esquerda reservada para o menu -->
+	<VBox layoutY="150.0" prefHeight="400.0" prefWidth="176.0" style="-fx-background-color: #999;">
+		<Button text="Menu 1" />
+		<Button text="Menu 2" />
+		<Button text="Menu 3" />
+		<VBox.margin>
+			<Insets bottom="5.0" right="10.0" />
+		</VBox.margin>
+	</VBox>
+
+	<!-- Inferior: Barra de Controles de Música, Informações e Volume -->
+	<HBox alignment="CENTER" layoutY="585.0" spacing="20" style="-fx-background-color: #181818; -fx-padding: 10; -fx-border-color: #282828; -fx-border-width: 1;">
+
+		<!-- Lado esquerdo: Informações da Música e Capa do Álbum -->
+		<HBox alignment="CENTER_LEFT" prefHeight="75.0" prefWidth="249.0" spacing="10" style="-fx-background-color: #181818;">
+			<ImageView fx:id="trackImage" fitHeight="60" fitWidth="60" style="-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 5);">
+				<HBox.margin>
+					<Insets right="20.0" />
+				</HBox.margin>
+			</ImageView>
+			<VBox alignment="CENTER_LEFT" spacing="2" style="-fx-background-color: #181818;">
+				<Text fx:id="trackTitle" style="-fx-font-size: 14; -fx-fill: white;" text="Título da Música" />
+				<Text fx:id="artistName" style="-fx-font-size: 12; -fx-fill: #AAAAAA;" text="Nome do Artista" />
+			</VBox>
+		</HBox>
+
+		<!-- Centro: Controles de Reprodução -->
+		<VBox alignment="CENTER" spacing="8" style="-fx-background-color: #181818;">
+			<!-- Botões de Controle -->
+			<HBox alignment="CENTER" spacing="20">
+				<Button fx:id="btnShuffle" onMouseClicked="#btn_Shuffle" style="-fx-background-color: transparent; -fx-text-fill: #B3B3B3; -fx-font-size: 18;" text="⤨" />
+				<Button fx:id="btnPrev" onMouseClicked="#btn_Prev" style="-fx-background-color: transparent; -fx-text-fill: #FFFFFF; -fx-font-size: 24;" text="⏮" />
+				<Button fx:id="btnPlayPause" onMouseClicked="#btn_PlayPause" style="-fx-background-color: transparent; -fx-text-fill: #FFFFFF; -fx-font-size: 24;" text="⏯" />
+				<Button fx:id="btnNext" onMouseClicked="#btn_Next" style="-fx-background-color: transparent; -fx-text-fill: #FFFFFF; -fx-font-size: 24;" text="⏭" />
+				<Button fx:id="btnRepeat" onMouseClicked="#btn_Repeat" style="-fx-background-color: transparent; -fx-text-fill: #B3B3B3; -fx-font-size: 18;" text="🔁" />
+			</HBox>
+			<!-- Barra de Progresso da Música -->
+			<HBox alignment="CENTER" spacing="20">
+				<Text fx:id="currentTime" style="-fx-fill: white;" text="0:00" />
+				<Slider fx:id="timeSlider" max="100" min="0" style="-fx-background-color: #555;" value="0" />
+				<Text fx:id="totalTime" style="-fx-fill: white;" text="0:00" />
+			</HBox>
+		</VBox>
+
+		<!-- Lado Direito: Controle de Volume -->
+		<HBox alignment="CENTER_RIGHT" spacing="10">
+			<Text onMouseClicked="#logoVolume" style="-fx-fill: #B3B3B3; -fx-font-size: 16;" text="🔊" />
+			<Slider fx:id="volumeSlider" max="1" min="0" style="-fx-control-inner-background: #333333;" value="0.5" />
+		</HBox>
+	</HBox>
+
+	<!-- Título no Topo -->
+	<Label layoutY="23.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #1DB954; -fx-padding: 10;" text="Deosound Music Player" />
+</Pane>
